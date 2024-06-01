@@ -7,7 +7,8 @@ let attributes = {
 let objects = {
     x1: null,
     x2: null,
-    x3: null
+    x3: null,
+    x4: null
 };
 
 let relation = [

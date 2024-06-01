@@ -6,8 +6,8 @@
 </head>
 <body>
     <input id="attributesList" type="text" placeholder="Enter attributes separated by commas">
-    <button onclick="updateData()">Update Attributes</button>
-    <div id="objectsList">Objects: </div>
+    <input id="objectsList" type="text" placeholder="Enter objects separated by commas">
+    <button onclick="updateData()">Update Attributes and Objects</button>
     <div id="relationList">Relations: </div>
     <script>
     // Create HTML elements to display the data
@@ -19,12 +19,14 @@
     function updateData() {
         let attributeKeys = attributesElement.value.split(', ');
         attributes = attributeKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
-        objectsElement.textContent += Object.keys(objects).join(', ');
+        let objectKeys = objectsElement.value.split(', ');
+        objects = objectKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
         relationElement.textContent += relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
     }
 
-    // Populate the input field with the default attributes
+    // Populate the input fields with the default attributes and objects
     attributesElement.value = Object.keys(attributes).join(', ');
+    objectsElement.value = Object.keys(objects).join(', ');
 
     // Call updateData immediately when the page loads
     updateData();
