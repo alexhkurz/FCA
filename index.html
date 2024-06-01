@@ -5,9 +5,9 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="attributesList"></div>
-    <div id="objects"></div>
-    <div id="relation"></div>
+    <div id="attributesList">Attributes: </div>
+    <div id="objects">Objects: </div>
+    <div id="relation">Relations: </div>
     <script>
     // Create HTML elements to display the data
     let objectsElement = document.getElementById('objects');
@@ -26,8 +26,8 @@
             [objects.x1, attributes.a2],
             [objects.x3, attributes.a3]
         ];
-        objectsElement.textContent = JSON.stringify(objects);
-        relationElement.textContent = JSON.stringify(relation);
+        objectsElement.textContent += Object.keys(objects).join(', ');
+        relationElement.textContent += relation.map(rel => rel.join(' - ')).join(', ');
     }
 
     // Call updateData immediately when the page loads
