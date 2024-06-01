@@ -6,12 +6,10 @@
 </head>
 <body>
     <div id="attributesList"></div>
-    <ul id="attributes"></ul>
     <div id="objects"></div>
     <div id="relation"></div>
     <script>
     // Create HTML elements to display the data
-    let attributesElement = document.getElementById('attributes');
     let objectsElement = document.getElementById('objects');
     let relationElement = document.getElementById('relation');
 
@@ -20,15 +18,6 @@
         let attributesListElement = document.getElementById('attributesList');
         attributesListElement.textContent = "attributes: " + Object.keys(attributes).join(', ');
 
-        for (let attribute in attributes) {
-            let listItem = document.createElement('li');
-            listItem.textContent = attribute + ": " + attributes[attribute];
-            listItem.addEventListener('click', function() {
-                attributes[attribute] = prompt("Enter a new value for " + attribute);
-                listItem.textContent = attribute + ": " + attributes[attribute];
-            });
-            attributesElement.appendChild(listItem);
-        }
         // objects.x1 = prompt("Enter a new value for x1");
         // objects.x2 = prompt("Enter a new value for x2");
         // objects.x3 = prompt("Enter a new value for x3");
