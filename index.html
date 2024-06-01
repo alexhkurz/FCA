@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attributes and Objects</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="attributes"></div>
+    <div id="objects"></div>
+    <div id="relation"></div>
+    <button id="updateButton">Update Data</button>
+
+    <script>
+    // Create HTML elements to display the data
+    let attributesElement = document.getElementById('attributes');
+    let objectsElement = document.getElementById('objects');
+    let relationElement = document.getElementById('relation');
+
+    // Function to update the data
+    function updateData() {
+        attributes.a1 = prompt("Enter a new value for a1");
+        attributes.a2 = prompt("Enter a new value for a2");
+        attributes.a3 = prompt("Enter a new value for a3");
+        objects.x1 = prompt("Enter a new value for x1");
+        objects.x2 = prompt("Enter a new value for x2");
+        objects.x3 = prompt("Enter a new value for x3");
+        relation = [
+            [objects.x1, attributes.a1],
+            [objects.x1, attributes.a2],
+            [objects.x3, attributes.a3]
+        ];
+        attributesElement.textContent = JSON.stringify(attributes);
+        objectsElement.textContent = JSON.stringify(objects);
+        relationElement.textContent = JSON.stringify(relation);
+    }
+
+    // Create a button to update the data
+    let updateButton = document.getElementById('updateButton');
+    updateButton.addEventListener('click', updateData);
+    </script>
+</body>
+</html>
