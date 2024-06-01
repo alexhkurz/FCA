@@ -17,11 +17,14 @@
 
     // Function to update the data
     function updateData() {
-        let attributeKeys = attributesElement.textContent.replace('Attributes: ', '').split(', ');
+        let attributeKeys = attributesElement.value.split(', ');
         attributes = attributeKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
         objectsElement.textContent += Object.keys(objects).join(', ');
         relationElement.textContent += relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
     }
+
+    // Populate the input field with the default attributes
+    attributesElement.value = Object.keys(attributes).join(', ');
 
     // Call updateData immediately when the page loads
     updateData();
