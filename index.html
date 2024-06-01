@@ -5,6 +5,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <div id="attributesList"></div>
     <ul id="attributes"></ul>
     <div id="objects"></div>
     <div id="relation"></div>
@@ -18,6 +19,9 @@
 
     // Function to update the data
     function updateData() {
+        let attributesListElement = document.getElementById('attributesList');
+        attributesListElement.textContent = "attributes: " + Object.keys(attributes).join(', ');
+
         for (let attribute in attributes) {
             let listItem = document.createElement('li');
             listItem.textContent = attribute + ": " + attributes[attribute];
