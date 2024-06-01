@@ -28,6 +28,9 @@
     attributesElement.value = Object.keys(attributes).join(', ');
     objectsElement.value = Object.keys(objects).join(', ');
 
+    // Populate the relations list with the default relations
+    relationElement.textContent += relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
+
     // Call updateData immediately when the page loads
     updateData();
     </script>
