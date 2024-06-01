@@ -1,8 +1,4 @@
-let attributes = {
-    a1: null,
-    a2: null,
-    a3: null
-};
+let attributes = ['a1', 'a2', 'a3'];
 
 let objects = {
     x1: null,
