@@ -18,15 +18,14 @@
     // Function to update the data
     function updateData() {
         attributes = attributesElement.value.split(', ');
-        let objectKeys = objectsElement.value.split(', ');
-        objects = objectKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
+        objects = objectsElement.value.split(', ');
         let relationKeys = objectsElement.value.split(', ');
         relation = relationKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
     }
 
     // Populate the input fields with the default attributes and objects
     attributesElement.value = attributes.join(', ');
-    objectsElement.value = Object.keys(objects).join(', ');
+    objectsElement.value = objects.join(', ');
     relationElement.value = relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads

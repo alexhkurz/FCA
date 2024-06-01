@@ -1,11 +1,6 @@
 let attributes = ['a1', 'a2', 'a3'];
 
-let objects = {
-    x1: null,
-    x2: null,
-    x3: null,
-    x4: null
-};
+let objects = ['x1', 'x2', 'x3', 'x4'];
 
 let relation = [
     ['x1', 'a1'],
