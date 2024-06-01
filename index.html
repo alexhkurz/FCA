@@ -28,7 +28,7 @@
     // Populate the input fields with the default attributes and objects
     attributesElement.value = Object.keys(attributes).join(', ');
     objectsElement.value = Object.keys(objects).join(', ');
-    relationElement.value = Object.keys(objects).join(', ');
+    relationElement.value = relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads
     updateData();
