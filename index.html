@@ -11,14 +11,12 @@
     <script>
     // Create HTML elements to display the data
     let attributesElement = document.getElementById('attributesList');
-    let objectsElement = document.getElementById('objects');
-    let relationElement = document.getElementById('relation');
+    let objectsElement = document.getElementById('objectsList');
+    let relationElement = document.getElementById('relationList');
 
     // Function to update the data
     function updateData() {
-        let attributesListElement = document.getElementById('attributesList');
-        attributesListElement.textContent = "attributes: " + Object.keys(attributes).join(', ');
-
+        attributesElement.textContent = "attributes: " + Object.keys(attributes).join(', ');
         objectsElement.textContent += Object.keys(objects).join(', ');
         relationElement.textContent += relation.map(rel => rel.join(' - ')).join(', ');
     }
