@@ -16,7 +16,8 @@
 
     // Function to update the data
     function updateData() {
-        attributesElement.textContent += Object.keys(attributes).join(', ');
+        let attributeKeys = attributesElement.textContent.replace('Attributes: ', '').split(', ');
+        attributes = attributeKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
         objectsElement.textContent += Object.keys(objects).join(', ');
         relationElement.textContent += relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
     }
