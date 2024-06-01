@@ -12,9 +12,9 @@ let objects = {
 };
 
 let relation = [
-    [objects.x1, attributes.a1],
-    [objects.x1, attributes.a2],
-    [objects.x3, attributes.a3]
+    ['x1', 'a1'],
+    ['x1', 'a2'],
+    ['x3', 'a3']
 ];
 
 
