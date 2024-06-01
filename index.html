@@ -43,6 +43,9 @@
         relationElement.textContent = JSON.stringify(relation);
     }
 
+    // Call updateData immediately when the page loads
+    updateData();
+
     // Create a button to update the data
     let updateButton = document.getElementById('updateButton');
     updateButton.addEventListener('click', updateData);
