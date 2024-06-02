@@ -5,6 +5,25 @@ class Relation {
         this.triples = triples;
     }
 
+    down(weightedUpset) {
+        let downUp = [];
+        this.getObjects().forEach(object => {
+            let minVal = Infinity;
+            this.getAttributes().forEach(attribute => {
+                let incidenceRelTriple = this.triples.find(triple => this.getObject(triple) === object && this.getAttribute(triple) === attribute);
+                let pair = weightedUpset.find(wu => wu[0] === attribute);
+                let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
+                let relationVal = incidenceRelTriple ? this.getValue(incidenceRelTriple) : 0; // if relation undefined, set value to 0
+                let val = truncatedDiv(relationVal, weight); 
+                if (val < minVal) {
+                    minVal = val;
+                }
+            });
+            downUp.push([object, minVal]);
+        });
+        return downUp;
+    }
+
     getObjects() {
         return [...new Set(this.triples.map(triple => triple[0]))];
     }
@@ -47,24 +66,6 @@ function truncatedDiv(x, y) {
     return (y === 0) ? 1 : ((x / y) > 1 ? 1 : x / y);
 }
 
-function down(weightedUpset) {
-    let downUp = [];
-    incidenceRel.getObjects().forEach(object => {
-        let minVal = Infinity;
-        incidenceRel.getAttributes().forEach(attribute => {
-            let incidenceRelTriple = incidenceRel.triples.find(triple => incidenceRel.getObject(triple) === object && incidenceRel.getAttribute(triple) === attribute);
-            let pair = weightedUpset.find(wu => wu[0] === attribute);
-            let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
-            let relationVal = incidenceRelTriple ? incidenceRel.getValue(incidenceRelTriple) : 0; // if relation undefined, set value to 0
-            let val = truncatedDiv(relationVal, weight); 
-            if (val < minVal) {
-                minVal = val;
-            }
-        });
-        downUp.push([object, minVal]);
-    });
-    return downUp;
-}
 
 
 
