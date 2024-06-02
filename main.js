@@ -10,7 +10,7 @@ class Relation {
     }
 
     getAttributes() {
-        return this.triples.map(triple => triple[1]);
+        return [...new Set(this.triples.map(triple => triple[1]))];
     }
 
     getValues() {
