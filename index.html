@@ -40,7 +40,7 @@
                 let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
                 let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
                 if (relationInstance && weight) {
-                    let val = relation.getValue(relationInstance) / weight;
+                    let val = truncatedDiv(relation.getValue(relationInstance), weight);
                     if (val < minVal) {
                         minVal = val;
                     }
