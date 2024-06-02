@@ -34,9 +34,23 @@
     function calculate() {
         let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
         weightedUpset = weightedUpsetKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
-        let downUp = ['down'];
+        let downUp = {};
+        objects.forEach(object => {
+            let minVal = Infinity;
+            attributes.forEach(attribute => {
+                let relationVal = relation.find(rel => rel[0] === object && rel[1] === attribute);
+                let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
+                if (relationVal && weight) {
+                    let val = relationVal[1] / weight;
+                    if (val < minVal) {
+                        minVal = val;
+                    }
+                }
+            });
+            downUp[object] = minVal;
+        });
         let upDownUp = ['up'];
-        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.join(', ');
+        document.getElementById('downUpDisplay').innerText = "DownUp: " + JSON.stringify(downUp);
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
     }
 
