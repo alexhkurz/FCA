@@ -15,8 +15,8 @@
 
     // Function to update the data
     function updateData() {
-        let relationKeys = relationElement.value.split(', ');
-        relation = relationKeys.map(key => key.split(', '));
+        let relationKeys = relationElement.value.split('), ');
+        relation = relationKeys.map(key => key.replace('(', '').replace(')', '').split(', '));
         let attributes = [...new Set(relation.map(rel => rel[1]))];
         let objects = [...new Set(relation.map(rel => rel[0]))];
         document.getElementById('attributesDisplay').innerText = "Attributes: " + attributes.join(', ');
