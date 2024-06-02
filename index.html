@@ -34,7 +34,7 @@
     function calculate() {
         let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
         weightedUpset = weightedUpsetKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
-        let downUp = {};
+        let downUp = [];
         objects.forEach(object => {
             let minVal = Infinity;
             attributes.forEach(attribute => {
@@ -47,10 +47,10 @@
                     }
                 }
             });
-            downUp[object] = minVal;
+            downUp.push([object, minVal]);
         });
         let upDownUp = ['up'];
-        document.getElementById('downUpDisplay').innerText = "DownUp: " + JSON.stringify(downUp);
+        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
     }
 
