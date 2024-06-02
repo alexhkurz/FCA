@@ -3,8 +3,8 @@
 From the commandline:
 
 ```
-git clone ...
-cd ...
+git clone https://github.com/alexhkurz/FCA.git
+cd FCA
 open index.html
 ```
 
