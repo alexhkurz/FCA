@@ -7,6 +7,8 @@
 <body>
     <input id="relationList" type="text" placeholder="Enter relations separated by commas" style="width: 500px;"><br>
     <button onclick="updateData()">Update Attributes, Objects, Relation</button><br>
+    <p id="attributesDisplay"></p>
+    <p id="objectsDisplay"></p>
     <script>
     // Create HTML elements to display the data
     let relationElement = document.getElementById('relationList');
@@ -14,7 +16,11 @@
     // Function to update the data
     function updateData() {
         let relationKeys = relationElement.value.split(', ');
-        relation = relationKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
+        relation = relationKeys.map(key => key.split(', '));
+        let attributes = [...new Set(relation.map(rel => rel[1]))];
+        let objects = [...new Set(relation.map(rel => rel[0]))];
+        document.getElementById('attributesDisplay').innerText = "Attributes: " + attributes.join(', ');
+        document.getElementById('objectsDisplay').innerText = "Objects: " + objects.join(', ');
     }
 
     // Populate the input fields with the default attributes and objects
