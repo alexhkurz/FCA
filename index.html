@@ -26,7 +26,6 @@
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
         relation = new Relation(triples);
         let attributes = [...new Set(relation.getAttributes())];
-        let objects = [...new Set(relation.getObjects())];
         document.getElementById('attributesDisplay').innerText = "Attributes: " + attributes.join(', ');
         document.getElementById('objectsDisplay').innerText = "Objects: " + objects.join(', ');
     }
@@ -36,7 +35,7 @@
         let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
         weightedUpset = weightedUpsetKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
         let downUp = [];
-        objects.forEach(object => {
+        relation.getObjects().forEach(object => {
             let minVal = Infinity;
             attributes.forEach(attribute => {
                 let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
