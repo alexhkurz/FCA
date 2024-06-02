@@ -33,10 +33,10 @@
             let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
             return [pair[0], parseFloat(pair[1])];
         });
-        let downUpResult = incidenceRel.down(weightedUpset); // the downset of the upset
-        let upDownUp = ['to be implemented'];
-        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUpResult.map(pair => "(" + pair.join(', ') + ")").join(', ');
-        document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
+        let downUp = incidenceRel.down(weightedUpset); // the downset of the upset
+        let upDownUp = incidenceRel.down(downUp); // the upset of the downset of the upset
+        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
+        document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
     }
 
     // Populate the input fields with the defaults
