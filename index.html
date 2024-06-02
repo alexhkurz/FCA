@@ -24,7 +24,7 @@
     function updateData() {
         let relationKeys = relationElement.value.split('), ');
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
-        relation = new Relation(triples);
+        relation.triples = triples;
         document.getElementById('attributesDisplay').innerText = "Attributes: " + relation.getAttributes().join(', ');
         document.getElementById('objectsDisplay').innerText = "Objects: " + relation.getObjects().join(', ');
     }
