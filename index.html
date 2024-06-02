@@ -20,7 +20,7 @@
     let relationElement = document.getElementById('relationDisplay');
     let weightedUpsetElement = document.getElementById('weightedUpsetDisplay');
 
-    // Function to update the data
+    // Update the relation with user supplied data
     function updateData() {
         let relationKeys = relationElement.value.split('), ');
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
@@ -37,6 +37,7 @@
             return [pair[0], parseFloat(pair[1])];
         });
         let downUp = downUp(); // the downset of the upset
+        log.console(downUp);
         let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
