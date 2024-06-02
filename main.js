@@ -49,13 +49,13 @@ function truncatedDiv(x, y) {
 
 function down() {
     let downUp = [];
-    relationInstance.getObjects().forEach(object => {
+    incidenceRel.getObjects().forEach(object => {
         let minVal = Infinity;
-        relationInstance.getAttributes().forEach(attribute => {
-            let incidenceRel = incidenceRel.triples.find(triple => incidenceRel.getObject(triple) === object && incidenceRel.getAttribute(triple) === attribute);
+        incidenceRel.getAttributes().forEach(attribute => {
+            let incidenceRelTriple = incidenceRel.triples.find(triple => incidenceRel.getObject(triple) === object && incidenceRel.getAttribute(triple) === attribute);
             let pair = weightedUpset.find(wu => wu[0] === attribute);
             let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
-            let relationVal = relationInstance ? relationInstance.getValue(relationInstance) : 0; // if relation undefined, set value to 0
+            let relationVal = incidenceRelTriple ? incidenceRel.getValue(incidenceRelTriple) : 0; // if relation undefined, set value to 0
             let val = truncatedDiv(relationVal, weight); 
             if (val < minVal) {
                 minVal = val;
