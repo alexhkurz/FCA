@@ -30,7 +30,7 @@ class Relation {
     }
 }
 
-let relationInstance = new Relation([
+let incidenceRel = new Relation([
     ['x1', 'a1', 1],
     ['x1', 'a2', 1],
     ['x2', 'a2', 1],
@@ -52,7 +52,7 @@ function downUp() {
     relationInstance.getObjects().forEach(object => {
         let minVal = Infinity;
         relationInstance.getAttributes().forEach(attribute => {
-            let relationInstance = relationInstance.triples.find(triple => relationInstance.getObject(triple) === object && relationInstance.getAttribute(triple) === attribute);
+            let incidenceRel = incidenceRel.triples.find(triple => incidenceRel.getObject(triple) === object && incidenceRel.getAttribute(triple) === attribute);
             let pair = weightedUpset.find(wu => wu[0] === attribute);
             let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
             let relationVal = relationInstance ? relationInstance.getValue(relationInstance) : 0; // if relation undefined, set value to 0

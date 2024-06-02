@@ -20,9 +20,9 @@
 
     // Update the relation with user supplied data
     function updateData() {
-        let relationKeys = relationElement.value.split('), ');
+        let relationKeys = incidenceRelElement.value.split('), ');
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
-        relation.triples = triples;
+        incidenceRel.triples = triples;
         document.getElementById('attributesDisplay').innerText = "Attributes: " + relation.getAttributes().join(', ');
         document.getElementById('objectsDisplay').innerText = "Objects: " + relation.getObjects().join(', ');
     }
@@ -42,7 +42,7 @@
     }
 
     // Populate the input fields with the defaults
-    relationElement.value = relation.triples.map(triple => "(" + triple.join(', ') + ")").join(', ');
+    incidenceRelElement.value = incidenceRel.triples.map(triple => "(" + triple.join(', ') + ")").join(', ');
     weightedUpsetElement.value = weightedUpset.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads
