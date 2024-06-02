@@ -8,9 +8,10 @@ cd FCA
 open index.html
 ```
 
-Modify the input boxes.
+**Usage:**
 
-- Given a weighted relation and a weighted upset, compute the downset of the upset and the upset of the downset of the downset.
-- Missing triples and pairs are valued valued at 0.
+- Modify the input boxes to specify a weighted relation and a weighted upset.
 - Values range between 0 and 1.
+- Missing triples and pairs are valued valued at 0.
+- Compute the downset of the upset and the upset of the downset of the downset.
 - Denoting the relation by $I$ and the weighted upset by $\psi$, the value of $x$ in the downset of the upset is $\bigwedge_a I(x,a)\lhd \psi(x)$ where $\lhd$ is truncated division (truncated to remain inside [0,1]). To mimic logical implication, division by $0$ gives $1$.
