@@ -34,8 +34,8 @@
             return [pair[0], parseFloat(pair[1])];
         });
         console.log(truncatedDiv(0.5, 2));
-        console.log(downUp());
-        let downUpResult = downUp(); // the downset of the upset
+        console.log(down());
+        let downUpResult = down(); // the downset of the upset
         let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUpResult.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
