@@ -38,10 +38,10 @@
         objects.forEach(object => {
             let minVal = Infinity;
             attributes.forEach(attribute => {
-                let relationVal = relation.find(rel => rel[0] === object && rel[1] === attribute);
+                let relationInstance = relation.find(rel => rel.getObject() === object && rel.getAttribute() === attribute);
                 let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
-                if (relationVal && weight) {
-                    let val = relationVal[2] / weight;
+                if (relationInstance && weight) {
+                    let val = relationInstance.getValue() / weight;
                     if (val < minVal) {
                         minVal = val;
                     }
