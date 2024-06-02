@@ -41,13 +41,14 @@
             let minVal = Infinity;
             relation.getAttributes().forEach(attribute => {
                 let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
-                let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
-                if (relationInstance && weight) {
+                let weight = weightedUpset.find(wu => wu[0] === attribute);
+                weight = weight ? weight[1] : 1;
+                if (relationInstance) {
                     let val = truncatedDiv(relation.getValue(relationInstance), weight);
                     if (val < minVal) {
                         minVal = val;
                     }
-                } else if (weight) {
+                } else {
                     minVal = 0;
                 }
             });
