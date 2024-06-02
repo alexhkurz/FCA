@@ -30,7 +30,7 @@ class Relation {
     }
 }
 
-let relation = new Relation([
+let relationInstance = new Relation([
     ['x1', 'a1', 1],
     ['x1', 'a2', 1],
     ['x2', 'a2', 1],
@@ -49,13 +49,13 @@ function truncatedDiv(x, y) {
 
 function downUp() {
     let downUp = [];
-    relation.getObjects().forEach(object => {
+    relationInstance.getObjects().forEach(object => {
         let minVal = Infinity;
-        relation.getAttributes().forEach(attribute => {
-            let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
+        relationInstance.getAttributes().forEach(attribute => {
+            let relationInstance = relationInstance.triples.find(triple => relationInstance.getObject(triple) === object && relationInstance.getAttribute(triple) === attribute);
             let pair = weightedUpset.find(wu => wu[0] === attribute);
             let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
-            let relationVal = relationInstance ? relation.getValue(relationInstance) : 0; // if relation undefined, set value to 0
+            let relationVal = relationInstance ? relationInstance.getValue(relationInstance) : 0; // if relation undefined, set value to 0
             let val = truncatedDiv(relationVal, weight); 
             if (val < minVal) {
                 minVal = val;
