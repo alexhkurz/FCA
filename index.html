@@ -41,10 +41,12 @@
                 let relationVal = relation.find(rel => rel[0] === object && rel[1] === attribute);
                 let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
                 if (relationVal && weight) {
-                    let val = relationVal[1] / weight;
+                    let val = relationVal[2] / weight;
                     if (val < minVal) {
                         minVal = val;
                     }
+                } else if (weight) {
+                    minVal = 0;
                 }
             });
             downUp.push([object, minVal]);
