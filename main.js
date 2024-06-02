@@ -1,6 +1,3 @@
-let attributes = ['a1', 'a2', 'a3'];
-
-let objects = ['x1', 'x2', 'x3'];
 
 class Relation {
     constructor(triples) {
