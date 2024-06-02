@@ -5,27 +5,19 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <input id="attributesList" type="text" placeholder="Enter attributes separated by commas"><br>
-    <input id="objectsList" type="text" placeholder="Enter objects separated by commas"><br>
     <input id="relationList" type="text" placeholder="Enter relations separated by commas" style="width: 500px;"><br>
     <button onclick="updateData()">Update Attributes, Objects, Relation</button><br>
     <script>
     // Create HTML elements to display the data
-    let attributesElement = document.getElementById('attributesList');
-    let objectsElement = document.getElementById('objectsList');
     let relationElement = document.getElementById('relationList');
 
     // Function to update the data
     function updateData() {
-        attributes = attributesElement.value.split(', ');
-        objects = objectsElement.value.split(', ');
         let relationKeys = relationElement.value.split(', ');
         relation = relationKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
     }
 
     // Populate the input fields with the default attributes and objects
-    attributesElement.value = attributes.join(', ');
-    objectsElement.value = objects.join(', ');
     relationElement.value = relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads
