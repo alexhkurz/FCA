@@ -40,7 +40,7 @@ let relation = new Relation([
 let weightedUpset = [
     ['a1', 0.5],
     ['a2', 0.5],
-    ['a3', 0.5],
+    ['a3', 0.5]
 ]
 
 function truncatedDiv(x, y) {
