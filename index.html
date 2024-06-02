@@ -9,7 +9,7 @@
     <button onclick="updateData()">Update Attributes, Objects, Relation</button><br>
     <p id="attributesDisplay"></p>
     <p id="objectsDisplay"></p>
-    <input id="weightedUpsetDisplay" type="text" placeholder="Enter weighted upset" style="width: 500px;"><br>
+    Weighted Upset: <input id="weightedUpsetDisplay" type="text" placeholder="Enter weighted upset" style="width: 500px;"><br>
     <button onclick="calculate()">Calculate</button><br>
     <p id="downUpDisplay"></p>
     <p id="upDownUpDisplay"></p>
@@ -51,7 +51,7 @@
             });
             downUp.push([object, minVal]);
         });
-        let upDownUp = ['up'];
+        let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
     }
