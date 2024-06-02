@@ -25,9 +25,8 @@
         let relationKeys = relationElement.value.split('), ');
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
         relation = new Relation(triples);
-        let attributes = [...new Set(relation.getAttributes())];
-        document.getElementById('attributesDisplay').innerText = "Attributes: " + attributes.join(', ');
-        document.getElementById('objectsDisplay').innerText = "Objects: " + objects.join(', ');
+        document.getElementById('attributesDisplay').innerText = "Attributes: " + relation.getAttributes().join(', ');
+        document.getElementById('objectsDisplay').innerText = "Objects: " + relation.getObjects().join(', ');
     }
 
     // calculate 
