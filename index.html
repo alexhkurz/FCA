@@ -12,7 +12,6 @@
     <p id="downUpDisplay"></p>
     <p id="upDownUpDisplay"></p>
 
-
     <script>
     // Create HTML elements to display the data
     let incidenceRelElement = document.getElementById('relationDisplay');
@@ -34,8 +33,9 @@
             let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
             return [pair[0], parseFloat(pair[1])];
         });
+        console.log(truncatedDiv(0.5, 2));
+        console.log(downUp());
         let downUp = downUp(); // the downset of the upset
-        log.console(downUp);
         let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
