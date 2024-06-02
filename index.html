@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Attributes and Objects</title>
+    <title>Fuzzy Formal Context Analysis</title>
     <script src="main.js"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
     function updateData() {
         attributes = attributesElement.value.split(', ');
         objects = objectsElement.value.split(', ');
-        let relationKeys = objectsElement.value.split(', ');
+        let relationKeys = relationElement.value.split(', ');
         relation = relationKeys.reduce((obj, key) => ({...obj, [key]: null}), {});
     }
 
