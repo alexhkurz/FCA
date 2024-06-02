@@ -23,9 +23,10 @@
     // Function to update the data
     function updateData() {
         let relationKeys = relationElement.value.split('), ');
-        relation = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
-        let attributes = [...new Set(relation.map(rel => rel[1]))];
-        let objects = [...new Set(relation.map(rel => rel[0]))];
+        let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
+        relation = new Relation(triples);
+        let attributes = [...new Set(relation.getAttributes())];
+        let objects = [...new Set(relation.getObjects())];
         document.getElementById('attributesDisplay').innerText = "Attributes: " + attributes.join(', ');
         document.getElementById('objectsDisplay').innerText = "Objects: " + objects.join(', ');
     }
@@ -38,7 +39,7 @@
         objects.forEach(object => {
             let minVal = Infinity;
             attributes.forEach(attribute => {
-                let relationInstance = relation.find(rel => rel.getObject() === object && rel.getAttribute() === attribute);
+                let relationInstance = relation.triples.find(triple => triple[0] === object && triple[1] === attribute);
                 let weight = weightedUpset.find(wu => wu[0] === attribute)[1];
                 if (relationInstance && weight) {
                     let val = relationInstance.getValue() / weight;
@@ -57,7 +58,7 @@
     }
 
     // Populate the input fields with the defaults
-    relationElement.value = relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
+    relationElement.value = relation.triples.map(triple => "(" + triple.join(', ') + ")").join(', ');
     weightedUpsetElement.value = weightedUpset.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads

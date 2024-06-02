@@ -3,31 +3,29 @@ let attributes = ['a1', 'a2', 'a3'];
 let objects = ['x1', 'x2', 'x3'];
 
 class Relation {
-    constructor(object, attribute, value) {
-        this.object = object;
-        this.attribute = attribute;
-        this.value = value;
+    constructor(triples) {
+        this.triples = triples;
     }
 
-    getObject() {
-        return this.object;
+    getObjects() {
+        return this.triples.map(triple => triple[0]);
     }
 
-    getAttribute() {
-        return this.attribute;
+    getAttributes() {
+        return this.triples.map(triple => triple[1]);
     }
 
-    getValue() {
-        return this.value;
+    getValues() {
+        return this.triples.map(triple => triple[2]);
     }
 }
 
-let relation = [
-    new Relation('x1', 'a1', 1),
-    new Relation('x1', 'a2', 1),
-    new Relation('x2', 'a2', 1),
-    new Relation('x3', 'a3', 1)
-];
+let relation = new Relation([
+    ['x1', 'a1', 1],
+    ['x1', 'a2', 1],
+    ['x2', 'a2', 1],
+    ['x3', 'a3', 1]
+]);
 
 let weightedUpset = [
     ['a1', 0.5],
