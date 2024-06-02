@@ -34,7 +34,7 @@
             return [pair[0], parseFloat(pair[1])];
         });
         let downUp = incidenceRel.down(weightedUpset); // the downset of the upset
-        let upDownUp = incidenceRel.down(downUp); // the upset of the downset of the upset
+        let upDownUp = incidenceRel.up(downUp); // the upset of the downset of the upset
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
     }
