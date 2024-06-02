@@ -43,5 +43,13 @@ let weightedUpset = [
     ['a3', 0.5],
 ]
 
+function truncatedDiv(x, y) {
+    let result = x / y;
+    if (result > 1) {
+        return 1;
+    }
+    return result;
+}
+
 
 
