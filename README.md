@@ -1,8 +1,8 @@
 # Fuzzy Formal Concept Analysis
 
-Fuzzy FCA wrt the quantale $[0,1]$ with multiplication as multiplication.
+Fuzzy FCA wrt the quantale $[0,1]$ with multiplication as multiplication. Runs in the browser.
 
-From the commandline (tested on Mac):
+From the commandline (tested with Mac and Firefox):
 
 ```
 git clone https://github.com/alexhkurz/FCA.git
