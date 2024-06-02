@@ -6,7 +6,7 @@ class Relation {
     }
 
     getObjects() {
-        return this.triples.map(triple => triple[0]);
+        return [...new Set(this.triples.map(triple => triple[0]))];
     }
 
     getAttributes() {
