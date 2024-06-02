@@ -32,7 +32,10 @@
     // calculate 
     function calculate() {
         let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
-        weightedUpset = weightedUpsetKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
+        weightedUpset = weightedUpsetKeys.map(key => {
+            let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
+            return [pair[0], parseFloat(pair[1])];
+        });
         let downUp = [];
         relation.getObjects().forEach(object => {
             let minVal = Infinity;
