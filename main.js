@@ -1,5 +1,6 @@
 
 class Relation {
+    // a Relation is a list of triples
     constructor(triples) {
         this.triples = triples;
     }
