@@ -47,7 +47,7 @@ function truncatedDiv(x, y) {
     return (y === 0) ? 1 : ((x / y) > 1 ? 1 : x / y);
 }
 
-function down() {
+function down(weightedUpset) {
     let downUp = [];
     incidenceRel.getObjects().forEach(object => {
         let minVal = Infinity;
