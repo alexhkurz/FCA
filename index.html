@@ -28,14 +28,7 @@
         document.getElementById('attributesDisplay').innerText = "Attributes: " + relation.getAttributes().join(', ');
         document.getElementById('objectsDisplay').innerText = "Objects: " + relation.getObjects().join(', ');
     }
-
-    // calculate 
-    function calculate() {
-        let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
-        weightedUpset = weightedUpsetKeys.map(key => {
-            let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
-            return [pair[0], parseFloat(pair[1])];
-        });
+    function downUp() {
         let downUp = [];
         relation.getObjects().forEach(object => {
             let minVal = Infinity;
@@ -51,6 +44,16 @@
             });
             downUp.push([object, minVal]);
         });
+    }
+    // calculate 
+    function calculate() {
+        // update the weighted upset
+        let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
+        weightedUpset = weightedUpsetKeys.map(key => {
+            let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
+            return [pair[0], parseFloat(pair[1])];
+        });
+        downUp(); // the downset of the upset
         let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
