@@ -44,6 +44,9 @@ let weightedUpset = [
 ]
 
 function truncatedDiv(x, y) {
+    if (y === 0) {
+        return 1;
+    }
     let result = x / y;
     if (result > 1) {
         return 1;
