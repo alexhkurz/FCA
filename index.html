@@ -42,7 +42,7 @@
             relation.getAttributes().forEach(attribute => {
                 let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
                 let pair = weightedUpset.find(wu => wu[0] === attribute);
-                let weight = pair ? pair[1] : 1;
+                let weight = (pair !== undefined) ? pair[1] : 1;
                 if (relationInstance) {
                     let val = truncatedDiv(relation.getValue(relationInstance), weight);
                     if (val < minVal) {
