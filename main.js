@@ -64,7 +64,7 @@ class Relation {
             });
             upOfDown.push([attribute, minVal]);
         });
-        return downUp;
+        return upOfDown;
     }
 }
 

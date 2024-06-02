@@ -10,3 +10,7 @@ open index.html
 
 Modify the input boxes.
 
+For the relation, missing triples have value 0.
+
+For the weighted upset, missing pairs have value 0.
+
