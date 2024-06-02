@@ -23,8 +23,8 @@
         let relationKeys = incidenceRelElement.value.split('), ');
         let triples = relationKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
         incidenceRel.triples = triples;
-        document.getElementById('attributesDisplay').innerText = "Attributes: " + relation.getAttributes().join(', ');
-        document.getElementById('objectsDisplay').innerText = "Objects: " + relation.getObjects().join(', ');
+        document.getElementById('attributesDisplay').innerText = "Attributes: " + incidenceRel.getAttributes().join(', ');
+        document.getElementById('objectsDisplay').innerText = "Objects: " + incidenceRel.getObjects().join(', ');
     }
     // calculate 
     function calculate() {
