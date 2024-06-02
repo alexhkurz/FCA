@@ -47,7 +47,7 @@ function truncatedDiv(x, y) {
     return (y === 0) ? 1 : ((x / y) > 1 ? 1 : x / y);
 }
 
-window.downUp = function() {
+function downUp() {
     let downUp = [];
     relation.getObjects().forEach(object => {
         let minVal = Infinity;
