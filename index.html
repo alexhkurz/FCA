@@ -44,6 +44,7 @@
             });
             downUp.push([object, minVal]);
         });
+        return downUp;
     }
     // calculate 
     function calculate() {
@@ -53,7 +54,7 @@
             let pair = key.replace('(', '').replace(')', '').split(',').map(item => item.trim());
             return [pair[0], parseFloat(pair[1])];
         });
-        downUp(); // the downset of the upset
+        let downUp = downUp(); // the downset of the upset
         let upDownUp = ['to be implemented'];
         document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
         document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
