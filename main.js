@@ -15,6 +15,18 @@ class Relation {
     getValues() {
         return this.triples.map(triple => triple[2]);
     }
+
+    getObject(triple) {
+        return triple[0];
+    }
+
+    getAttribute(triple) {
+        return triple[1];
+    }
+
+    getValue(triple) {
+        return triple[2];
+    }
 }
 
 let relation = new Relation([
