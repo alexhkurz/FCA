@@ -47,5 +47,24 @@ function truncatedDiv(x, y) {
     return (y === 0) ? 1 : ((x / y) > 1 ? 1 : x / y);
 }
 
+window.downUp = function() {
+    let downUp = [];
+    relation.getObjects().forEach(object => {
+        let minVal = Infinity;
+        relation.getAttributes().forEach(attribute => {
+            let relationInstance = relation.triples.find(triple => relation.getObject(triple) === object && relation.getAttribute(triple) === attribute);
+            let pair = weightedUpset.find(wu => wu[0] === attribute);
+            let weight = pair ? pair[1] : 0; // if pair is undefined, set weight to 0
+            let relationVal = relationInstance ? relation.getValue(relationInstance) : 0; // if relation undefined, set value to 0
+            let val = truncatedDiv(relationVal, weight); 
+            if (val < minVal) {
+                minVal = val;
+            }
+        });
+        downUp.push([object, minVal]);
+    });
+    return downUp;
+}
+
 
 
