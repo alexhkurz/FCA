@@ -5,16 +5,20 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <input id="relationList" type="text" placeholder="Enter relations separated by commas" style="width: 500px;"><br>
+    <input id="relationDisplay" type="text" placeholder="Enter relations separated by commas" style="width: 500px;"><br>
     <button onclick="updateData()">Update Attributes, Objects, Relation</button><br>
     <p id="attributesDisplay"></p>
     <p id="objectsDisplay"></p>
     <input id="weightedUpsetDisplay" type="text" placeholder="Enter weighted upset" style="width: 500px;"><br>
     <button onclick="calculate()">Calculate</button><br>
+    <p id="downUpDisplay"></p>
+    <p id="upDownUpDisplay"></p>
+
 
     <script>
     // Create HTML elements to display the data
-    let relationElement = document.getElementById('relationList');
+    let relationElement = document.getElementById('relationDisplay');
+    let weightedUpsetElement = document.getElementById('weightedUpsetDisplay');
 
     // Function to update the data
     function updateData() {
@@ -26,8 +30,19 @@
         document.getElementById('objectsDisplay').innerText = "Objects: " + objects.join(', ');
     }
 
-    // Populate the input fields with the default attributes and objects
+    // calculate 
+    function calculate() {
+        let weightedUpsetKeys = weightedUpsetElement.value.split('), ');
+        weightedUpset = weightedUpsetKeys.map(key => key.replace('(', '').replace(')', '').split(',').map(item => item.trim()));
+        let downUp = ['down'];
+        let upDownUp = ['up'];
+        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.join(', ');
+        document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.join(', ');
+    }
+
+    // Populate the input fields with the defaults
     relationElement.value = relation.map(rel => "(" + rel.join(', ') + ")").join(', ');
+    weightedUpsetElement.value = weightedUpset.map(rel => "(" + rel.join(', ') + ")").join(', ');
 
     // Call updateData immediately when the page loads
     updateData();
