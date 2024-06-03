@@ -7,7 +7,7 @@
     <button onclick="updateData()">Update Attributes, Objects, Relation</button><br>
     <p id="attributesDisplay"></p>
     <p id="objectsDisplay"></p>
-    Weighted Upset: <input id="weightedUpsetDisplay" type="text" placeholder="Enter weighted upset" style="width: 500px;"><br>
+    Weighted Set of Attributes: <input id="weightedUpsetDisplay" type="text" placeholder="Enter weighted upset" style="width: 500px;"><br>
     <button onclick="calculate()">Calculate</button><br>
     <p id="downUpDisplay"></p>
     <p id="upDownUpDisplay"></p>
@@ -35,8 +35,8 @@
         });
         let downUp = incidenceRel.down(weightedUpset); // the downset of the upset
         let upDownUp = incidenceRel.up(downUp); // the upset of the downset of the upset
-        document.getElementById('downUpDisplay').innerText = "DownUp: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
-        document.getElementById('upDownUpDisplay').innerText = "UpDownUp: " + upDownUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
+        document.getElementById('downUpDisplay').innerText = "Down: " + downUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
+        document.getElementById('upDownUpDisplay').innerText = "UpDown: " + upDownUp.map(pair => "(" + pair.join(', ') + ")").join(', ');
     }
 
     // Populate the input fields with the defaults
